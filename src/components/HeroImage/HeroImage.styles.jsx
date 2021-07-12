@@ -11,16 +11,7 @@ export const Wrapper = styled.div`
   background-position: center;
   height: 600px;
   position: relative;
-  animation: animateHeroImage 1s;
-
-  @keyframes animateHeroImages {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
+  animation: fadeIn 1s;
 `
 
 export const Content = styled.div`

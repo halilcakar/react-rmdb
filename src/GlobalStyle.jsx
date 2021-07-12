@@ -38,4 +38,14 @@ export const GlobalStyle = createGlobalStyle`
       color: var(--white);
     }
   }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
 `
