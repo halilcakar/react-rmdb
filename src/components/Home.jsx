@@ -6,15 +6,16 @@ import { BACKDROP_SIZE, IMAGE_BASE_URL, POSTER_SIZE } from '../config'
 import Grid from './Grid'
 import HeroImage from './HeroImage'
 import Thumb from './Thumb'
-// import Spinner from './Spinner'
+import Spinner from './Spinner'
 import SearchBar from './SearchBar'
+import Button from './Button'
 // Hooks
 import { useHomeFetch } from '../hooks/useHomeFetch'
 // Image
 import NoImage from '../images/no_image.jpg'
 
 const Home = () => {
-  const { state, searchTerm, setSearchTerm } = useHomeFetch()
+  const { state, searchTerm, loading, setSearchTerm } = useHomeFetch()
 
   return (
     <>
@@ -42,6 +43,10 @@ const Home = () => {
           />
         ))}
       </Grid>
+      {loading && <Spinner />}
+      {state.page < state.total_pages && !loading && (
+        <Button text="Load More" />
+      )}
     </>
   )
 }
