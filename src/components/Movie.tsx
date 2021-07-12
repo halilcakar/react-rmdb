@@ -8,6 +8,7 @@ import Actor from "./Actor";
 import BreadCrumb from "./BreadCrumb";
 import MovieInfo from "./MovieInfo";
 import MovieInfoBar from "./MovieInfoBar";
+import NotFound from "./NotFound";
 
 // Hooks
 import { useMovieFetch } from "../hooks/useMovieFetch";
@@ -20,9 +21,9 @@ const Movie: React.FC = () => {
 
   const { state: movie, loading, error } = useMovieFetch(movieId);
 
-  if (error) return <div>Something went wrong...</div>;
-
   if (loading) return <Spinner />;
+
+  if (error || !movie.original_title) return <NotFound />;
 
   return (
     <>

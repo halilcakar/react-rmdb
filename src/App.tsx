@@ -1,7 +1,7 @@
 import React from "react";
 
 // Routing
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // Components
 import Header from "./components/Header";
@@ -15,17 +15,11 @@ import { GlobalStyle } from "./GlobalStyle";
 const App: React.FC = () => (
   <BrowserRouter>
     <Header />
-    <Switch>
-      <Route exact path="/">
-        <Home />
-      </Route>
-      <Route path="/:movieId">
-        <Movie />
-      </Route>
-      <Route path="*">
-        <NotFound />
-      </Route>
-    </Switch>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/:movieId" element={<Movie />} />
+      <Route path="*" element={<NotFound />} />
+    </Routes>
     <GlobalStyle />
   </BrowserRouter>
 );

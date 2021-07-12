@@ -13,13 +13,19 @@ import Button from "./Button";
 import { useHomeFetch } from "../hooks/useHomeFetch";
 // Image
 import NoImage from "../images/no_image.jpg";
+import NotFound from "./NotFound";
 
 const Home: React.FC = () => {
   const { state, searchTerm, error, loading, setSearchTerm, setIsLoadingMore } =
     useHomeFetch();
 
   if (error) {
-    return <div>Something went wrong...</div>;
+    return (
+      <NotFound>
+        Something went wrong... <br />I think we have a problem with{" "}
+        <a href="https://www.themoviedb.org/">TMDB</a>
+      </NotFound>
+    );
   }
 
   return (

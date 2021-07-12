@@ -13,7 +13,7 @@ export const Wrapper = styled.div<Props>`
     url(${({ image }) => image}), var(--darkGrey);
   background-size: 100%, cover;
   background-position: center;
-  height: 600px;
+  height: calc(100vh - 80px);
   position: relative;
   animation: fadeIn 1s;
 `;
