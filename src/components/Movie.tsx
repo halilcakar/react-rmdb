@@ -1,9 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 
-// Config
-import { IMAGE_BASE_URL, POSTER_SIZE } from "../config";
-
 // Components
 import Grid from "./Grid";
 import Spinner from "./Spinner";
@@ -19,7 +16,7 @@ import { useMovieFetch } from "../hooks/useMovieFetch";
 import { urlBuilder } from "../helpers";
 
 const Movie: React.FC = () => {
-  const { movieId } = useParams<{ movieId: string }>();
+  const { movieId } = useParams();
 
   const { state: movie, loading, error } = useMovieFetch(movieId);
 
