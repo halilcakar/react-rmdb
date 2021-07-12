@@ -6,6 +6,7 @@ import { BACKDROP_SIZE, IMAGE_BASE_URL, POSTER_SIZE } from '../config'
 import Grid from './Grid'
 import HeroImage from './HeroImage'
 import Thumb from './Thumb'
+import Spinner from './Spinner'
 // Hooks
 import { useHomeFetch } from '../hooks/useHomeFetch'
 // Image
@@ -25,6 +26,8 @@ const Home = () => {
       )}
 
       {/* We are gonna put searchbar here.. */}
+
+      <Spinner />
 
       <Grid header="Popular Movies">
         {state.results.map((movie) => (
