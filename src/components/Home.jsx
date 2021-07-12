@@ -3,6 +3,7 @@ import React from 'react'
 // Config
 import { BACKDROP_SIZE, IMAGE_BASE_URL } from '../config'
 // Components
+import Grid from './Grid'
 import HeroImage from './HeroImage'
 // Hooks
 import { useHomeFetch } from '../hooks/useHomeFetch'
@@ -10,9 +11,7 @@ import { useHomeFetch } from '../hooks/useHomeFetch'
 // import NoImage from '../images/no_image.jpg'
 
 const Home = () => {
-  const { error, loading, state } = useHomeFetch()
-
-  console.log({ error, loading, state })
+  const { state } = useHomeFetch()
 
   return (
     <>
@@ -23,6 +22,14 @@ const Home = () => {
           text={state.results[0].overview}
         />
       )}
+
+      {/* We are gonna put searchbar here.. */}
+
+      <Grid header="Popular Movies">
+        {state.results.map((movie) => (
+          <div key={movie.id}>{movie.title}</div>
+        ))}
+      </Grid>
     </>
   )
 }
