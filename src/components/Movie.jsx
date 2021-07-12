@@ -9,6 +9,7 @@ import {} from '../config'
 import Spinner from './Spinner'
 import BreadCrumb from './BreadCrumb'
 import MovieInfo from './MovieInfo'
+import MovieInfoBar from './MovieInfoBar'
 
 // Hooks
 import { useMovieFetch } from '../hooks/useMovieFetch'
@@ -27,7 +28,11 @@ const Movie = () => {
     <>
       <BreadCrumb movieTitle={movie.original_title} />
       <MovieInfo movie={movie} />
-      <div>Movie</div>
+      <MovieInfoBar
+        time={movie.runtime}
+        budget={movie.budget}
+        revenue={movie.revenue}
+      />
     </>
   )
 }
