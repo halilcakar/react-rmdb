@@ -7,6 +7,7 @@ import {} from '../config'
 // Components
 // import Grid from './Grid'
 import Spinner from './Spinner'
+import BreadCrumb from './BreadCrumb'
 
 // Hooks
 import { useMovieFetch } from '../hooks/useMovieFetch'
@@ -18,15 +19,17 @@ const Movie = () => {
 
   const { state: movie, loading, error } = useMovieFetch(movieId)
 
-  console.log(movie)
-
   if (error) {
     return <div>Something went wrong...</div>
   }
 
+  if (loading) {
+    return <Spinner />
+  }
+
   return (
     <>
-      {loading && <Spinner />}
+      <BreadCrumb movieTitle={movie.original_title} />
       <div>Movie</div>
     </>
   )
